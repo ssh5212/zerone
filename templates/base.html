@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- fontawesome -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet" />
+	<link rel="stylesheet" type="text/css" href="{% static 'bootstrap.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'simplemde.min.css' %}">
+
+	<title>Make world, with YoungHana!!</title>
+</head>
+
+<body>
+<div id="body-wrapper">
+	<div id="body-content">
+		{% include "navbar.html" %}
+
+		{% block content %}
+		{% endblock %}
+
+		<script src="{% static 'simplemde.min.js' %}"></script>
+		<script src="{% static 'jquery-3.6.0.min.js' %}"></script>
+		<script src="{% static 'bootstrap.min.js' %}"></script>
+		{% block script %}
+		{% endblock %}
+	</div>
+	<footer class="jumbotron jumbotron-fluid text-white-50 text-center mt-5 mb-0" id="footers" style="background-color: #343A40">
+		<div class="container my-3">
+			<h3 class="text-white" style="padding-bottom: 15px;">YoungHana</h3>
+			<p><address><b>강원도 삼척시 중앙로 346 강원대학교 삼척캠퍼스 제5공학관 511호</b></address></p>
+			<p>YoungHana Homepage is powered by <span class="text-primary">AngelPlayer</span> | Designed by <span class="text-primary">AngelPlayer</span></p>
+		</div>
+	</footer>
+</div>
+</body>
+
+</html>

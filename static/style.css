@@ -1,0 +1,78 @@
+/* profile용 글씨체 */
+@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
+
+
+.comment {
+    border-top: dotted 1px #ddd;
+    font-size: 0.7em;
+}
+
+.carousel-text {
+    text-shadow: 2px 2px 6px black;
+    font-weight: bolder;
+}
+
+.link-text {
+    color: #6c757d;
+    font-weight: bolder;
+}
+
+.link-text:hover {
+    color: #212529!important;
+}
+
+.link-author {
+    color: #212529;
+}
+
+.link-author:hover {
+    color: #212529;
+}
+
+/* footer 하단 고정 [S] */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+#body-wrapper {
+    min-height: 100%;
+    position: relative;
+}
+
+#body-content {
+    margin-top: 100px;
+    padding-bottom: 320px;
+}
+
+footer {
+    width: 100%;
+    height: 288px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+/* footer 하단 고정 [E] */
+
+/* 휴대폰 화면 (가장 작아지는 크기) */
+@media (max-width: 767px) {
+    .date_hidden {
+        display: none;
+    }
+}
+
+/* nav 자동으로 버튼 생기는 크기 */
+@media (max-width: 991px) {
+    .login-top {
+        /*padding-bottom: 0px;*/
+        padding-top: 15px;
+    }
+    .login-bottom {
+        /*padding-top: 5px;*/
+    }
+
+    .sup {
+        font-size: initial;
+    }
+}

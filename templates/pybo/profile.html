@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	<div class="container my-3">
+		<div class="row">
+			<div class="col-sm-6 text-center">
+				<img src="{{ user.profileImage }}" class="rounded-circle mx-auto" style="box-shadow:5px 5px 10px grey; border: 1px solid #c8cbcf; margin-bottom: 30px;" width="300" height="300">
+				<h1 class="my-3 font-weight-bold">{{ user.realname }}</h1>
+				<h5>{{ user }}</h5>
+				<p>{{ user.email }}</p>
+			</div>
+			<div class="col-sm-6" style="display: flex; align-items: flex-end" >
+				<div style="padding-top: 50px">
+					<h5 class="my-3" style="font-weight: normal"><i class="fas fa-gamepad"></i>&nbsp;&nbsp;{{ user.hobby }}</h5>
+					<h5 class="my-3" style="font-weight: normal"><i class="fas fa-thumbs-up"></i>&nbsp;&nbsp;&nbsp;{{ user.forte }}</h5>
+					<h5 class="my-3" style="font-weight: normal"><i class="fas fa-home"></i>&nbsp;&nbsp;&nbsp;<a class="link-author" href="{{ user.addr1 }}">{{ user.addr1 }}</a></h5>
+				</div>
+			</div>
+			<div class="col-sm-12 text-center my-3" style="padding-top: 20px;">
+				<p style="display: inline-block; font-size: 80px; font-family: 'Bangers', cursive; font-weight: bold; margin-bottom: 0px;">"&nbsp;</p>
+				<h2 style="display: inline-block; font-weight: bold">&nbsp;{{ user.intro }}&nbsp;</h2>
+				<p style="display: inline-block; font-size: 80px; font-family: 'Bangers', cursive; font-weight: bold; margin-bottom: 0px; padding-top: 30px">"</p>
+
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

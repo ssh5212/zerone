@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container my-3">
+	<div class="row my-3">
+		<div class="col-4">
+			<h4>회원가입</h4>
+		</div>
+		<div class="col-8 text-right">
+			<span>또는 <a href="{% url 'common:login' %}">로그인하세요.</a></span>
+		</div>
+	</div>
+	<form method="POST" class="post-form">
+		{% csrf_token %}
+		<div class="alert alert-warning" role="alert">
+			<p class="my-3 small">실명과 아이디는 변경이 불가능합니다!</p>
+			<p class="my-3 small">주소에는 개인이 운영중인 블로그, Github 주소 등을 입력하시면 됩니다.</p>
+			<p class="my-3 small">프로필 이미지는 외부 사이트의 이미지 링크를 작성하시면 됩니다. (Github 프로필 추천)</p>
+			<p class="my-3 small"><a href="#">※ 작성 요령</a></p>
+		</div>
+		{% include "form_errors.html" %}
+
+		<div class="row my-3">
+			<div class="col-sm-6 my-3">
+				<div class="form-group">
+					<label for="username">사용자 ID</label>
+					<input type="text" class="form-control" name="username" id="username" value="{{ form.username.value|default_if_none:'' }}">
+				</div>
+				<div class="form-group">
+					<label for="password1">비밀번호</label>
+					<input type="password" class="form-control" name="password1" id="password1" value="{{ form.password1.value|default_if_none:'' }}" placeholder="최소 8글자 이상 작성하셔야 합니다.">
+				</div>
+				<div class="form-group">
+					<label for="password2">비밀번호 확인</label>
+					<input type="password" class="form-control" name="password2" id="password2" value="{{ form.password2.value|default_if_none:'' }}" placeholder="쉬운 패턴은 사용이 불가합니다. ex) 1234, abcd">
+				</div>
+				<div class="form-group">
+					<label for="email">이메일</label>
+					<input type="text" class="form-control" name="email" id="email" value="{{ form.email.value|default_if_none:'' }}">
+				</div>
+				<!-- 기능 추가 [S] -->
+				<div class="form-group">
+					<label for="realname">실명</label>
+					<input type="text" class="form-control" name="realname" id="realname" value="{{ form.realname.value|default_if_none:'' }}">
+				</div>
+			</div>
+
+			<div class="col-sm-6 my-3">
+				<div class="form-group">
+					<label for="hobby">취미</label>
+					<input type="text" class="form-control" name="hobby" id="hobby" value="{{ form.hobby.value|default_if_none:'' }}">
+				</div>
+
+				<div class="form-group">
+					<label for="forte">특기</label>
+					<input type="text" class="form-control" name="forte" id="forte" value="{{ form.forte.value|default_if_none:'' }}">
+				</div>
+
+				<div class="form-group">
+					<label for="addr1">주소</label>
+					<input type="text" class="form-control" name="addr1" id="addr1" value="{{ form.addr1.value|default_if_none:'' }}" placeholder="ex) https://angelplayer.tistory.com">
+				</div>
+
+				<div class="form-group">
+					<label for="intro">자기소개</label>
+					<input type="text" class="form-control" name="intro" id="intro" value="{{ form.intro.value|default_if_none:'' }}" placeholder="ex) 자기소개 or 하고 싶은 말">
+				</div>
+
+				<div class="form-group">
+					<label for="profileImage">프로필 이미지</label>
+					<input type="text" class="form-control" name="profileImage" id="profileImage" value="{{ form.profileImage.value|default_if_none:'' }}" placeholder="ex) https://avatars.githubusercontent.com/u/26498125?v=4">
+				</div>
+			</div>
+		</div>
+
+		<!-- 기능 추가 [E] -->
+		<button type="submit" class="btn btn-primary">생성하기</button>
+	</form>
+</div>
+{% endblock %}
