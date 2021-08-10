@@ -51,3 +51,7 @@ def password_modify(request, user_id):
 		form = PasswordChangeForm(user)
 	context = {'form': form, 'user': user}
 	return render(request, 'common/password_modify.html', context)
+
+
+def page_not_found(request, exception):
+	return render(request, 'common/404.html', {})
