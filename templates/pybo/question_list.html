@@ -30,6 +30,30 @@
             </tr>
         </thead>
         <tbody>
+			{% for notice in notice_list %}
+            <tr class="text-center">
+                <td><span class="badge badge-danger">공지</span></td>
+				<td>
+					{% if notice.voter.all.count > 0 %}
+						<span class="badge badge-warning px-2 py-1">{{ notice.voter.all.count }}</span>
+					{% endif %}
+					{% if notice.voter.all.count == 0 %}
+						<span class="badge badge-light px-2 py-1 text-muted">0</span>
+					{% endif %}
+				</td>
+                <td class="text-left"><a class="card-text text-decoration-none link-text" href="{% url 'pybo:detail' notice.id %}">
+                    {{ notice.subject }}
+                    {% if notice.answer_set.count > 0 %}
+                    <span class="text-danger small ml-2">
+                        <i class="fas fa-comment"></i>&nbsp;{{ notice.answer_set.count }}
+                    </span>
+                    {% endif %}
+                </a></td>
+				<td><a class="card-text text-decoration-none link-author" href="{% url 'pybo:detail_profile' notice.author_id %}">{{ notice.author.username }}</a></td>
+                <td class="date_hidden">{{ notice.create_date }}</td>
+            </tr>
+            {% endfor %}
+
             {% if question_list %}
             {% for question in question_list %}
             <tr class="text-center">

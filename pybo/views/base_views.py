@@ -38,6 +38,7 @@ def index(request, category_name):
 
     category = get_object_or_404(Category, name=category_name)
     _question_list = Question.objects.filter(category__name=category.name)
+    notice_list = Question.objects.filter(author__username='admin')
 
     # 정렬
     if so == 'recommend':
@@ -60,7 +61,7 @@ def index(request, category_name):
     paginator = Paginator(_question_list, 10)
     page_obj = paginator.get_page(page)
 
-    context = {'category': category, 'question_list': page_obj, 'page': page, 'kw': kw, 'so': so}
+    context = {'category': category, 'question_list': page_obj, 'page': page, 'kw': kw, 'so': so, 'notice_list': notice_list}
     return render(request, 'pybo/question_list.html', context)
 
 
