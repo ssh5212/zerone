@@ -31,7 +31,6 @@ def main(request):
     return render(request, 'pybo/main.html', context)
 
 
-
 def index(request, category_name):
     page = request.GET.get('page', '1')
     kw = request.GET.get('kw', '')
