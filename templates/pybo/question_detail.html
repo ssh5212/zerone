@@ -166,6 +166,13 @@
 		document.title = "{{ question.subject }} - YoungHana";
 	</script>
 
+	<script>
+		// simplemde 이미지 수정
+		var simplemde = createSimpleMde({
+			element: document.getElementById("content")
+		});
+	</script>
+
 	<script type="text/javascript">
 	$(document).ready(function (){
 		$(".delete").on('click', function (){
@@ -180,9 +187,5 @@
 			}
 		});
 	});
-	</script>
-
-	<script>
-		var simplemde = new SimpleMDE({ element: document.getElementById("content") });
 	</script>
 {% endblock %}

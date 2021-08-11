@@ -25,6 +25,16 @@
 		<script src="{% static 'simplemde.min.js' %}"></script>
 		<script src="{% static 'jquery-3.6.0.min.js' %}"></script>
 		<script src="{% static 'bootstrap.min.js' %}"></script>
+		<script>
+			function createSimpleMde(param){
+				const defaultParam = {
+					insertTexts: {
+						image:[`<div class="text-center"><img class="img-fluid" src="`,`https://"></div>`]
+					}
+				}
+				return new SimpleMDE({...defaultParam, ...param});
+			}
+		</script>
 		{% block script %}
 		{% endblock %}
 	</div>

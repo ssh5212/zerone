@@ -16,6 +16,9 @@
 
 {% block script %}
 	<script>
-		var simplemde = new SimpleMDE({ element: document.getElementById("content") });
+		// simplemde 이미지 수정
+		var simplemde = createSimpleMde({
+			element: document.getElementById("content")
+		});
 	</script>
 {% endblock %}

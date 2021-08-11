@@ -23,7 +23,8 @@
             </div>
             <div class="form-group">
 				<label for="content">내용</label>
-				<textarea class="form-control" name="content" id="content" rows="10">{{ form.content.value|default_if_none:'' }}</textarea>            </div>
+				<textarea class="form-control" name="content" id="content" rows="10">{{ form.content.value|default_if_none:'' }}</textarea>
+			</div>
 
 			<button type="submit" class="btn btn-primary">저장히기</button>
 		</form>
@@ -32,7 +33,12 @@
 
 {% block script %}
 	<script>
-		var simplemde = new SimpleMDE({ element: document.getElementById("content") });
+		// simplemde 이미지 수정
+		var simplemde = createSimpleMde({
+			element: document.getElementById("content")
+		});
+
+		// 양식
 		if (!simplemde.value()) {
 			let context;
 			console.log('{{ category }}')
