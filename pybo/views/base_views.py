@@ -2,7 +2,7 @@ from django.core.paginator import Paginator
 from django.shortcuts import render, get_object_or_404
 from django.db.models import Q, Count
 
-from ..models import Question, Category
+from ..models import Question, Category, Answer
 
 
 def main(request):
@@ -42,9 +42,9 @@ def index(request, category_name):
 
     # 정렬
     if so == 'recommend':
-        _question_list = _question_list.order_by('-num_voter', '-create_date')
+        _question_list = _question_list.order_by('-voter', '-create_date')
     elif so == 'popular':
-        _question_list = _question_list.order_by('-num_answer', '-create_date')
+        _question_list = _question_list.order_by('-answer', '-create_date')
     else:
         _question_list = _question_list.order_by('-create_date')
 
@@ -67,5 +67,7 @@ def index(request, category_name):
 
 def detail(request, question_id):
     question = get_object_or_404(Question, pk=question_id)
-    context = {'question': question, 'category': question.category}
+    answer_list = question.answer_set.all()
+    answer_list = answer_list.order_by('-voter', '-create_date')
+    context = {'question': question, 'category': question.category, 'answer_list': answer_list}
     return render(request, 'pybo/question_detail.html', context)
