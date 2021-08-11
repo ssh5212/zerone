@@ -38,7 +38,8 @@ def index(request, category_name):
 
     category = get_object_or_404(Category, name=category_name)
     _question_list = Question.objects.filter(category__name=category.name)
-    notice_list = Question.objects.filter(author__username='admin')
+    notice_list = Question.objects.filter(category__name='notice')
+    notice_list = notice_list.filter(author__username='admin')
 
     # 정렬
     if so == 'recommend':
